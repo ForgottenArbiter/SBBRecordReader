@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionModifyGold | Timestamp:32 || PlayerId: 429402B2E2AD1FA4 | Amount: 2

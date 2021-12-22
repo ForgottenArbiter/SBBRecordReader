@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionDealDamage | Timestamp:90 | Target: a32cee0a-e050-462d-9b6c-d0bc7815a347 | Source: 8541cfe6-ba15-4215-8f95-e7649553f7d8 | Value: 3

@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionEnterShopPhase | Timestamp:30 || Round: 1 | GoldPerTurn: 2

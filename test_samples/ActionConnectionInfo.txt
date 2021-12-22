@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionConnectionInfo | Timestamp:4 || SessionId: 81feb47c-320f-4b31-9cfc-d920a8f0d348 | BuildId: 65db41ce-7e96-4290-b951-e8713e8bd5bd | ServerIP: 037d8616c36c65f798f63a4a27612b9e1663440034e55adb46c98516c347b1bd

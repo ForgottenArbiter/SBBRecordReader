@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionMoveCard | Timestamp:70 | CardId: 09aace0e-b233-43d0-962b-4cdc4db786eb | TargetZone: Character | TargetIndex: 5

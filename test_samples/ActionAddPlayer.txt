@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionAddPlayer | Timestamp:12 || Player: Id 429402B2E2AD1FA4 | DisplayName: Forgotten Arbiter | Health: 40 | Gold: 0 | Experience: 0 | NextLevelXP: 3 | Level: 2 | Place: 1 | Hero: Card: ID:a32cee0a-e050-462d-9b6c-d0bc7815a347 | CardTemplateId: 76

@@ -1,0 +1,1 @@
+Writing binary data to recorder for action: - Action: Type:GLG.Transport.Actions.ActionAttack | Timestamp:185 | Attacker: ea8330c5-1fdf-4375-9488-e2590d9b8544 | Defender: b14c29ae-ee33-4a1f-abbb-48ab3780eccb
