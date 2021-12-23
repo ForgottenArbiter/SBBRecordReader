@@ -413,5 +413,14 @@ def test_update_card_9():
     assert "1c364760a6e14b4cb26edd66376eba1e" in result.card.valid_targets
 
 
+def test_create_card_alt_art():
+    filename = "CreateCardAltArt"
+    binary = load_binary_file(filename)
+    result = record_parser.STRUCT_ACTION_CREATE_CARD.parse(binary)
+    assert result.card.zone == "hero"
+    assert result.card.art_id == "SKIN_HERO_DRAGONMOTHERGWEN"
+
+
+
 
 

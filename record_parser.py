@@ -28,7 +28,7 @@ class GuidAdapter(Adapter):
         return STRUCT_GUID.build(dict(field_1=field_1, field_2=field_2, field_3=field_3, field_4=field_4))
 
 
-ZONE = Enum(Byte, none=0, character=1, treasure=3, shop=6)  # TODO: Incomplete
+ZONE = Enum(Byte, none=0, character=1, treasure=3, hero=4, shop=6)  # TODO: Incomplete
 
 SUBTYPE = Enum(Int16ul, prince=0, princess=1, animal=2, mage=4, fairy=6, dwarf=7, treant=8, egg=9, good=0xA, evil=0xB,
                brawl_spell=0xF,
@@ -57,7 +57,6 @@ STRUCT_OPTIONAL_LIST_GUID = Select(Const(b"\x01"),
 STRUCT_UNIT = Struct(
     "card_id" / GuidAdapter(STRUCT_GUID),
     "template_id" / Int32ul,
-    # "is_movable" / Flag,
     Padding(1),
     "is_locked" / Flag,
     "is_targeted" / Flag,  # Some of these still aren't tested
@@ -78,7 +77,8 @@ STRUCT_UNIT = Struct(
     "keywords" / PrefixedArray(Int32ul, KEYWORD),
     "valid_targets" / ListUnitAdapter(STRUCT_OPTIONAL_LIST_GUID),
     "card_id_again" / GuidAdapter(STRUCT_GUID),
-    Padding(4),
+    "art_id_length" / Int32ul,
+    "art_id" / PaddedString(this.art_id_length * 2, "utf_16_le"),
     "player_id_length" / Int32ul,
     "player_id" / PaddedString(this.player_id_length * 2, "utf_16_le"),
     "frame_override_length" / Int32ul,
