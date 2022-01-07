@@ -285,7 +285,7 @@ STRUCT_ACTION_MOVE_CARD = Struct(
     "action_id" / Const(b"\x0D\x00"),
     "timestamp" / Int64ul,
     "card_id" / GuidAdapter(STRUCT_GUID),
-    "target_zone" / Enum(Byte, character=1),
+    "target_zone" / ZONE,
     "target_index" / Int32ul
 )
 

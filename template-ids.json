@@ -279,6 +279,22 @@
     "Id": "SBB_SPELL_EENIEMEENIEMINEYMO",
     "Name": "Eenie Meenie Miney Mo"
   },
+  "138": {
+    "Id": "SBB_SPELL_SUGARANDSPICE",
+    "Name": "Sugar and Spice"
+  },
+  "139": {
+    "Id": "SBB_SPELL_WITCH'SBREW",
+    "Name": "Witch's Brew"
+  },
+  "140": {
+    "Id": "SBB_SPELL_FORGLORY",
+    "Name": "For Glory!"
+  },
+  "141": {
+    "Id": "SBB_SPELL_MYSTERIOUSSCROLL",
+    "Name": "Genie's Wish"
+  },
   "142": {
     "Id": "SBB_TREASURE_RUSTYDAGGERS",
     "Name": "Needle Nose Daggers"
@@ -451,6 +467,10 @@
     "Id": "SBB_SPELL_TRANSFORMATION",
     "Name": "True Love's Kiss"
   },
+  "205": {
+    "Id": "SBB_SPELL_DRINKMEPOTION",
+    "Name": "Luna's Grace"
+  },
   "206": {
     "Id": "SBB_SPELL_BLESSEDTOME",
     "Name": "Turkish Delight"
@@ -498,6 +518,10 @@
   "217": {
     "Id": "SBB_SPELL_CANDYRAIN",
     "Name": "Candy Rain"
+  },
+  "218": {
+    "Id": "SBB_SPELL_WRINKLEINTIME",
+    "Name": "Mixawizzle"
   },
   "219": {
     "Id": "SBB_TREASURE_STING",
@@ -651,6 +675,10 @@
     "Id": "SBB_SPELL_NEWFACES",
     "Name": "Masquerade Ball"
   },
+  "285": {
+    "Id": "SBB_SPELL_FLAMINGAURA",
+    "Name": "Burning Palm"
+  },
   "286": {
     "Id": "SBB_SPELL_STONESKIN",
     "Name": "Stoneskin"
@@ -674,6 +702,10 @@
   "291": {
     "Id": "SBB_SPELL_SEVENDWARVES",
     "Name": "Hi Ho!"
+  },
+  "292": {
+    "Id": "SBB_SPELL_MENAGERIE",
+    "Name": "Toil and Trouble"
   },
   "293": {
     "Id": "SBB_SPELL_LIGHTNINGBOLT",
@@ -802,6 +834,10 @@
   "338": {
     "Id": "SBB_SPELL_POISONAPPLE",
     "Name": "Poison Apple"
+  },
+  "339": {
+    "Id": "SBB_SPELL_LUCKYCOIN",
+    "Name": "Lucky Coin"
   },
   "340": {
     "Id": "SBB_TREASURE_TREASURECHEST",
@@ -1010,9 +1046,5 @@
   "412": {
     "Id": "SBB_TREASURE_MAGICSWORD+100",
     "Name": "Magic Sword +100"
-  },
-  "-1": {
-    "Id": "SBB_SPELL_WITCH'SBREW",
-    "Name": "Witch's Brew"
   }
 }
