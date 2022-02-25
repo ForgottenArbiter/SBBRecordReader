@@ -28,7 +28,7 @@ class GuidAdapter(Adapter):
         return STRUCT_GUID.build(dict(field_1=field_1, field_2=field_2, field_3=field_3, field_4=field_4))
 
 
-ZONE = Enum(Byte, none=0, character=1, treasure=3, hero=4, shop=6)  # TODO: Incomplete
+ZONE = Enum(Byte, none=0, character=1, spell=2, treasure=3, hero=4, hand=5, shop=6)  # TODO: Incomplete
 
 SUBTYPE = Enum(Int16ul, prince=0, princess=1, animal=2, mage=4, fairy=6, dwarf=7, treant=8, egg=9, good=0xA, evil=0xB,
                brawl_spell=0xF,
