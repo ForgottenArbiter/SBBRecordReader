@@ -1,4 +1,6 @@
 import pickle
+from collections import defaultdict
+
 import pandas as pd
 import numpy as np
 import itertools
@@ -12,7 +14,7 @@ def is_main(game: Game):
         # My main account's ID
         if item.id == "429402B2E2AD1FA4":
             return True
-    return False
+    return results is not None and game.final_board is not None
 
 
 def get_final_level(game: Game):
@@ -39,6 +41,8 @@ if __name__ == "__main__":
     treasure_choices = []
     comps = []
     purchases = []
+    rolls_per_turn = defaultdict(list)
+    records = {}
     for game in games:
         if not is_main(game):
             continue
@@ -46,12 +50,19 @@ if __name__ == "__main__":
         was_6 = get_final_level(game) == 6
         if was_6:
             made_to_6 += 1
+        for player in game.final_results:
+            current_record = records.get(player.name, (0, 0))
+            if player.place > game.placement:
+                records[player.name] = (current_record[0] + 1, current_record[1])
+            else:
+                records[player.name] = (current_record[0], current_record[1] + 1)
         for choice in game.treasure_choices:
             if choice.chosen != "Skip":
                 treasure_record = pd.Series({"tier": choice.tier, "placement": game.placement, "name": choice.chosen})
                 treasure_choices.append(treasure_record)
         for turn in range(1, game.turn + 1):
             player_level = get_current_level(game, turn)
+            rolls_per_turn[turn].append(len(game.shops[turn-1]) - 1)
             for purchase in itertools.chain.from_iterable(game.bought[turn-1]):
                 purchase_record = pd.Series({"name": purchase.name, "level": player_level, "placement": game.placement, "game": count})
                 purchases.append(purchase_record)
@@ -121,9 +132,20 @@ if __name__ == "__main__":
             my_list.append((unit, len(df_subset), np.mean(df_subset.placement)))
         my_list = sorted(my_list, key=lambda x: x[1], reverse=True)
         print("Level {} purchases:".format(level))
-        print(my_list[:10])
+        print(my_list[:100])
 
     print("Hit level 6: {}/{}".format(made_to_6, count))
+
+    avg_rolls = [(i, np.mean(rolls_per_turn[i])) for i in rolls_per_turn.keys()]
+    for turn, rolls in avg_rolls:
+        standard_turn_1 = (turn - 1) // 3 + 2
+        standard_turn_2 = (turn - 1) % 3
+        print(f"Turn {turn} ({standard_turn_1}.{standard_turn_2}):\t{rolls} rolls")
+
+    record_keys = sorted(records.keys(), key=lambda x: sum(records[x]), reverse=True)
+    for i in range(20):
+        record = records[record_keys[i]]
+        print("{}: {} wins, {} losses".format(record_keys[i], record[0], record[1]))
 
 
 

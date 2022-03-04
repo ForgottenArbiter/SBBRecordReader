@@ -1,3 +1,6 @@
+from typing import BinaryIO
+import re
+
 import binascii
 import struct
 from construct import Struct, Const, Padding, PascalString, Int32ub, Int8ub, Int16ul, Int32ul, Int32sl, Int16ub, \
@@ -10,6 +13,17 @@ STRUCT_GUID = Struct(
     "field_3" / Int16ul,
     "field_4" / Int64ul
 )
+
+preamble_regex = re.compile(r"ClientVersion:\[([^\]]+)\]\|TransportVersion:\[([^\]]+)\]\|CardDatabaseVersion:\[([^\]]+)\]")
+
+
+def parse_preamble(f: BinaryIO):
+    preamble = f.readline().decode("utf-8")
+    answer = preamble_regex.match(preamble)
+    client_version = answer[1]
+    transport_version = answer[2]
+    card_database_version = answer[3]
+    return client_version, transport_version, card_database_version
 
 
 class GuidAdapter(Adapter):

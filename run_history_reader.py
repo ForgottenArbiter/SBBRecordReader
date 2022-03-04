@@ -10,7 +10,7 @@ from typing import List
 
 from construct import GreedyRange
 
-from record_parser import STRUCT_ACTION, id_to_action_name
+from record_parser import STRUCT_ACTION, id_to_action_name, parse_preamble
 
 
 # Copied from SBB Tracker's template ID mapping
@@ -67,13 +67,14 @@ class Board:
 
 class Player:
 
-    def __init__(self, hero, health, level, experience, name, player_id):
+    def __init__(self, hero, health, level, experience, name, player_id, place):
         self.hero = hero
         self.health = health
         self.level = level
         self.experience = experience
         self.name = name
         self.id = player_id
+        self.place = place
 
 
 class TreasureChoice:
@@ -126,6 +127,7 @@ class Game:
 
 def extract_game_from_record_file(filename):
     with open(filename, 'rb') as f:
+        # parse_preamble(f)
         result = GreedyRange(STRUCT_ACTION).parse_stream(f)
         remaining_binary_contents = f.read()
     if len(remaining_binary_contents) != 0:
@@ -198,7 +200,7 @@ def extract_game_from_record_file(filename):
             game.final_board = board
         if action_name == "ActionAddPlayer":
             player_hero = template_id_dict[str(record.template_id)]["Name"]
-            player = Player(player_hero, record.health, record.level, record.experience, record.player_name, record.player_id)
+            player = Player(player_hero, record.health, record.level, record.experience, record.player_name, record.player_id, record.place)
             if game.game_over:
                 game.final_results.append(player)
             elif game.turn > 0:
